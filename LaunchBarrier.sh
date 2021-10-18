@@ -47,8 +47,8 @@ WantedBy=multi-user.target" \
     echo ""
     echo "Barrier: Launching server"
     sudo systemctl daemon-reload
-    systemctl start barrierc.service
-    systemctl enable barrierc.service
+    sudo systemctl start barrierc.service
+    sudo systemctl enable barrierc.service
     echo "Done"
 ## Setting-up client
 elif [ $sc = C ]; then
@@ -77,8 +77,8 @@ WantedBy=multi-user.target" \
     echo ""
     echo "Barrier: Launching client"
     sudo systemctl daemon-reload
-    systemctl start barrierc.service
-    systemctl enable barrierc.service
+    sudo systemctl start barrierc.service
+    sudo systemctl enable barrierc.service
     echo "Done"
 else
     echo "Please answer server (S) or client (C). CTRL C to Cancel : "
