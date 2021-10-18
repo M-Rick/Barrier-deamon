@@ -10,7 +10,7 @@ while true; do
 done
 
 ## Answer is Yes - Barrier Configuration
-if [ $yn == Y ]; then
+if [ $yn = Y ]; then
     echo "Yes"
 
 while true; do
@@ -23,7 +23,7 @@ while true; do
 done
 ## Setting-up Barrier
 ## Setting-up server
-if [ $sc == S ]; then
+if [ $sc = S ]; then
     echo -n "Input the Barrier server name: "
     read -r bsname
     sudo echo \
@@ -49,7 +49,7 @@ WantedBy=multi-user.target" \
     systemctl enable barrierc.service
     echo "Done"
 ## Setting-up client
-elif [ $sc == C ]; then
+elif [ $sc = C ]; then
     echo -n "Input the Barrier server computer name or the IP address (E.g Linux-Computer1.local or 192.168.1.1) : "
     read -r bsname
     echo -n "Input the Barrier client computer name : "
@@ -81,7 +81,7 @@ else
 fi
 
 ## Answer is No - End
-elif [ $yn == N ]; then
+elif [ $yn = N ]; then
     echo ""
     echo "Installation of Barrier Deamon aborted"
     echo ""
