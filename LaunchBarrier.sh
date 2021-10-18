@@ -35,9 +35,11 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=forking
-ExecStart=nice --5 /usr/bin/barriers -f --no-tray --no-restart --name $bsname --enable-crypto -c /tmp/Barrier.hlsSpA --address:24800
+ExecStart=nice --5 /usr/bin/barriers --no-tray --no-restart --name $bsname --enable-crypto -c /tmp/Barrier.hlsSpA --address:24800
 Restart=always
 RestartSec=10
+User=$USER
+CPUSchedulingPriority=70
 
 [Install]
 WantedBy=multi-user.target" \
@@ -63,9 +65,11 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=forking
-ExecStart=nice --5 /usr/bin/barrierc -f --no-tray --no-restart --name $bcname --enable-crypto [$bsname]:24800
+ExecStart=nice --5 /usr/bin/barrierc --no-tray --no-restart --name $bcname --enable-crypto $bsname:24800
 Restart=always
 RestartSec=10
+User=$USER
+CPUSchedulingPriority=70
 
 [Install]
 WantedBy=multi-user.target" \
